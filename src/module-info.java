@@ -63,3 +63,48 @@ public class testClass {
         assertEquals(0, result);
     }
 }
+sts
+
+    package com.example.demo;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+
+    @GetMapping("/")
+    public String home() {
+        return "Spring Boot is running successfully!";
+    }
+}
+
+spring.application.name=DemoProject
+server.port=8081
+
+    kubernetes
+
+    kubectl get nodes
+kubectl create deployment webapp --image=nginx
+kubectl get pods
+kubectl scale deployment webapp --replicas=3
+kubectl get pods
+kubectl expose deployment webapp --type=NodePort --port=80
+kubectl get services
+nano limited-pod.yaml
+kubectl apply -f limited-pod.yaml
+kubectl get pods
+kubectl describe pod limited-pod
+kubectl get all
+apiVersion: v1
+kind: Pod
+metadata:
+name: limited-pod
+spec:
+containers:
+- name: nginx
+image: nginx
+resources:
+limits:
+memory: "128Mi"
+cpu: "500m"
